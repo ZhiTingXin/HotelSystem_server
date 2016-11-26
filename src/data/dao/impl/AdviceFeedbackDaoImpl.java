@@ -4,28 +4,27 @@ import java.util.ArrayList;
 
 import PO.AdviceFeedBackPO;
 import data.dao.AdviceFeedbackDao;
-import other.ResultMessage;
 import other.hibernateUtil;
 
 public class AdviceFeedbackDaoImpl implements AdviceFeedbackDao {
 
 
-	public ResultMessage addAdvice(AdviceFeedBackPO advice) {
+	public boolean addAdvice(AdviceFeedBackPO advice) {
 		try{
 			hibernateUtil.add(advice);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-		    return ResultMessage.FAILED;
+		    return false;
 		}
 	}
-	public ResultMessage updateAdvice(AdviceFeedBackPO advice) {
+	public boolean updateAdvice(AdviceFeedBackPO advice) {
 		try{
 			hibernateUtil.update(advice);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-		    return ResultMessage.FAILED;
+		    return false;
 		}
 	}
 	public ArrayList<AdviceFeedBackPO> getAdvices(String userId,String type) {

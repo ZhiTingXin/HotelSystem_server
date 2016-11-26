@@ -3,7 +3,6 @@ package data.dao.impl;
 
 import PO.LoginPO;
 import data.dao.LoginDao;
-import other.ResultMessage;
 import other.hibernateUtil;
 
 public class LoginDaoImpl implements LoginDao{
@@ -12,44 +11,44 @@ public class LoginDaoImpl implements LoginDao{
 		
 	}
 	
-	public ResultMessage confirm(String userId, String userPassword) {
+	public boolean confirm(String userId, String userPassword) {
 		LoginPO login =  (LoginPO)hibernateUtil.findById(LoginPO.class, userId);
 		if(login!=null){
 			if(login.getUserPassword().equals(userPassword)){
-				return ResultMessage.SUCCESSFUL;
+				return true;
 			}else{
-				return ResultMessage.FAILED;
+				return false;
 			}
 		}else{
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
-	public ResultMessage add(LoginPO login) {
+	public boolean add(LoginPO login) {
 		try{
 			hibernateUtil.add(login);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
-	public ResultMessage delete(LoginPO login) {
+	public boolean delete(LoginPO login) {
 		try{
 			hibernateUtil.delete(login);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 
-	public ResultMessage update(LoginPO login) {
+	public boolean update(LoginPO login) {
 		try{
 			hibernateUtil.update(login);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 }

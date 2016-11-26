@@ -3,39 +3,38 @@ package data.dao.impl;
 import java.util.ArrayList;
 import PO.HotelStrategyPO;
 import data.dao.HotelStrategyDao;
-import other.ResultMessage;
 import other.hibernateUtil;
 
 public class HotelStrategyDaoImpl implements HotelStrategyDao {
 
-	public ResultMessage add(HotelStrategyPO hotelstrategy) {
+	public boolean add(HotelStrategyPO hotelstrategy) {
 		try{
 			hibernateUtil.add(hotelstrategy);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 
-	public ResultMessage delete(HotelStrategyPO hotelstrategy) {
+	public boolean delete(HotelStrategyPO hotelstrategy) {
 		try{
 			hibernateUtil.delete(hotelstrategy);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 		
 	}
 
-	public ResultMessage modify(HotelStrategyPO hotelstartegy) {
+	public boolean modify(HotelStrategyPO hotelstartegy) {
 		try{
 			hibernateUtil.update(hotelstartegy);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 

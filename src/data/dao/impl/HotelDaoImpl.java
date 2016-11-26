@@ -5,31 +5,30 @@ import java.util.List;
 
 import PO.HotelPO;
 import data.dao.HotelDao;
-import other.ResultMessage;
 import other.hibernateUtil;
 
 public class HotelDaoImpl implements HotelDao{
 
-	public ResultMessage add(HotelPO hotel) {
+	public boolean add(HotelPO hotel) {
 		try{
 			hibernateUtil.add(hotel);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 
-	public ResultMessage del(HotelPO hotel) {
+	public boolean del(HotelPO hotel) {
 		if(hotel==null){
-			return ResultMessage.FAILED;
+			return false;
 		}
 		try{
 			hibernateUtil.delete(hotel);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 		
 	}

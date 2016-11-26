@@ -4,7 +4,6 @@ import java.util.List;
 
 import PO.OrderPO;
 import data.dao.OrderDao;
-import other.ResultMessage;
 import other.hibernateUtil;
 
 public class OrderDaoImpl implements OrderDao{
@@ -12,33 +11,33 @@ public class OrderDaoImpl implements OrderDao{
 	public OrderDaoImpl(){
 		
 	}
-	public ResultMessage add(OrderPO order) {
+	public boolean add(OrderPO order) {
 		try{
 			hibernateUtil.add(order);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 
-	public ResultMessage update(OrderPO order) {
+	public boolean update(OrderPO order) {
 		try{
 			hibernateUtil.update(order);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 
-	public ResultMessage dalete(OrderPO order) {
+	public boolean dalete(OrderPO order) {
 		try{
 			hibernateUtil.delete(order);
-			return ResultMessage.SUCCESSFUL;
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return ResultMessage.FAILED;
+			return false;
 		}
 	}
 

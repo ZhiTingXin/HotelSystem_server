@@ -15,53 +15,43 @@ import data.dao.SystemStrategyDao;
 public class DataFactoryImpl implements DataFactory{
 
 	public AdviceFeedbackDao getAdviceFeedbackDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new AdviceFeedbackDaoImpl();
 	}
 
 	public CustomerDao getCustomerDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CustomerDaoImpl();
 	}
 
 	public HotelDao getHotelDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new HotelDaoImpl();
 	}
 
 	public HotelStaffDao getHotelStaffDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new HotelStaffDaoImpl();
 	}
 
 	public HotelStrategyDao getHotelStrategyDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new HotelStrategyDaoImpl();
 	}
 
 	public LoginDao getLoginDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new LoginDaoImpl();
 	}
 
 	public OrderDao getOrderDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new OrderDaoImpl();
 	}
 
 	public SystemManagerDao getSystemManagerDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SystemManagerDaoImpl();
 	}
 
 	public SystemStaffDao getSystemStaffDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SystemStaffDaoImpl();
 	}
 
 	public SystemStrategyDao getSystemStrategyDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SystemStrategyDaoImpl();
 	}
 
 }

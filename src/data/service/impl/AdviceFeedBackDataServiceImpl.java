@@ -7,26 +7,28 @@ import javax.enterprise.inject.New;
 
 import PO.AdviceFeedBackPO;
 import data.dao.AdviceFeedbackDao;
+import data.dao.DataFactory;
 import data.dao.impl.AdviceFeedbackDaoImpl;
+import data.dao.impl.DataFactoryImpl;
 import data.service.AdviceFeedBackDataService;
-import other.ResultMessage;
 
 public class AdviceFeedBackDataServiceImpl implements AdviceFeedBackDataService {
 	
-	AdviceFeedbackDao adviceFeedbackDao;
+	private DataFactory dataFactory;
+	private AdviceFeedbackDao adviceFeedbackDao;
 			
  	public AdviceFeedBackDataServiceImpl(){
-		adviceFeedbackDao = new AdviceFeedbackDaoImpl();
+ 		dataFactory = new DataFactoryImpl();
+		adviceFeedbackDao = dataFactory.getAdviceFeedbackDao();
 	}
 	
-	public ResultMessage addAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean addAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
+		
 	}
 
-	public ResultMessage modiffiAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
+	public boolean modiffiAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	public ArrayList<AdviceFeedBackPO> getAll(String userId) throws RemoteException {
