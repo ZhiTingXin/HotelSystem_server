@@ -23,27 +23,18 @@ public class AdviceFeedBackDataServiceImpl implements AdviceFeedBackDataService 
 	}
 	
 	public boolean addAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
-		
+	
+		return adviceFeedbackDao.addAdvice(advicefeedback);
 	}
 
-	public boolean modiffiAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updateAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
+		return adviceFeedbackDao.updateAdvice(advicefeedback);
 	}
 
-	public ArrayList<AdviceFeedBackPO> getAll(String userId) throws RemoteException {
+	public ArrayList<AdviceFeedBackPO> getAdvices(String userId,String type) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		return adviceFeedbackDao.getAdvices(userId, type);
 	}
 
-	public ArrayList<AdviceFeedBackPO> getUnProcessed(String staffId) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<AdviceFeedBackPO> getProcessed(String staffId) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
