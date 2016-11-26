@@ -4,23 +4,22 @@ import java.rmi.RemoteException;
 
 import PO.SystemStrategyPO;
 import data.service.SystemStrategyDataService;
-import other.ResultMessage;
 
 public class SystemStrategyDataServiceImpl implements SystemStrategyDataService {
 
-	public ResultMessage add(SystemStrategyPO systemstrategy) throws RemoteException {
+	public boolean add(SystemStrategyPO systemstrategy) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
-	public ResultMessage delete(SystemStrategyPO systemstrategy) throws RemoteException {
+	public boolean delete(SystemStrategyPO systemstrategy) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
-	public ResultMessage modify(SystemStrategyPO systemstrategy) throws RemoteException {
+	public boolean modify(SystemStrategyPO systemstrategy) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }
