@@ -1,28 +1,37 @@
 package data.service.impl;
 
+import java.rmi.RemoteException;
+
 import PO.HotelStaffPO;
+import data.dao.DataFactory;
+import data.dao.HotelStaffDao;
+import data.dao.impl.DataFactoryImpl;
 import data.service.HotelStaffDataService;
 
 public class HotelStaffDataServiceImpl implements HotelStaffDataService{
 
-	public boolean addStaff(HotelStaffPO staffPO) {
-		// TODO Auto-generated method stub
-		return false;
+	private DataFactory dataFactory;
+	private HotelStaffDao hotelStaffDao;
+	
+	public HotelStaffDataServiceImpl(){
+		dataFactory = new DataFactoryImpl();
+		hotelStaffDao = dataFactory.getHotelStaffDao();
+	}
+	public boolean addStaff(HotelStaffPO staffPO) throws RemoteException {
+		return hotelStaffDao.addStaff(staffPO);
 	}
 
-	public boolean updateStaff(HotelStaffPO staffPO) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updateStaff(HotelStaffPO staffPO) throws RemoteException {
+		return hotelStaffDao.updateStaff(staffPO);
 	}
 
-	public boolean deleteStaff(HotelStaffPO staffPO) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteStaff(HotelStaffPO staffPO) throws RemoteException {
+		return hotelStaffDao.deleteStaff(staffPO);
 	}
 
-	public HotelStaffPO findStaff(String staffID) {
-		// TODO Auto-generated method stub
-		return null;
+	public HotelStaffPO findStaff(String staffID) throws RemoteException {
+		return hotelStaffDao.findStaff(staffID);
 	}
 
+	
 }

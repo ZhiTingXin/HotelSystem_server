@@ -1,28 +1,37 @@
 package data.service.impl;
 
+import java.rmi.RemoteException;
+
 import PO.CustomerPO;
+import data.dao.CustomerDao;
+import data.dao.DataFactory;
+import data.dao.impl.DataFactoryImpl;
 import data.service.CustomerDataService;
 
 public class CustomerDataServiceImpl implements CustomerDataService {
 
-	public boolean addCustomer(CustomerPO customer) {
-		// TODO Auto-generated method stub
-		return false;
+	private DataFactory dataFactory;
+	private CustomerDao customerDao;
+	
+	public CustomerDataServiceImpl(){
+		dataFactory = new DataFactoryImpl();
+		customerDao = dataFactory.getCustomerDao();
+	}
+	public boolean addCustomer(CustomerPO customer) throws RemoteException {
+		return customerDao.addCustomer(customer);
 	}
 
-	public boolean deleteCustomer(CustomerPO customer) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteCustomer(CustomerPO customer) throws RemoteException {
+		return customerDao.deleteCustomer(customer);
 	}
 
-	public boolean updateCustomer(CustomerPO customer) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updateCustomer(CustomerPO customer) throws RemoteException {
+		return customerDao.updateCustomer(customer);
 	}
 
-	public CustomerPO findCustomer(String customerID) {
-		// TODO Auto-generated method stub
-		return null;
+	public CustomerPO findCustomer(String customerID) throws RemoteException {
+		return customerDao.findCustomer(customerID);
 	}
+
 
 }

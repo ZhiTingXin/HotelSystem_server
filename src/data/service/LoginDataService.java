@@ -7,11 +7,11 @@ import PO.LoginPO;
 
 public interface LoginDataService extends Remote {
 
-	public boolean confirm(String userId,String userPassword);
+	public boolean confirm(String userId,String userPassword)throws RemoteException;
 	
-	public boolean add(LoginPO login);
+	public boolean add(LoginPO login)throws RemoteException;
 	
-	public boolean delete(LoginPO login);
+	public boolean delete(LoginPO login)throws RemoteException;
 	
-	public boolean update(LoginPO login);
+	public boolean update(LoginPO login)throws RemoteException;
 }

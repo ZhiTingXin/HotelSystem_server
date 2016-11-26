@@ -1,29 +1,39 @@
 package data.service.impl;
 
+import java.rmi.RemoteException;
+
 import PO.SystemManagerPO;
 import PO.SystemStaffPO;
+import data.dao.DataFactory;
+import data.dao.SystemStaffDao;
+import data.dao.impl.DataFactoryImpl;
 import data.service.SystemManagerDataService;
+import data.service.SystemStaffDataService;
 
-public class SystemStaffDataServiceImpl implements SystemManagerDataService{
+public class SystemStaffDataServiceImpl implements SystemStaffDataService{
 
-	public SystemManagerPO findManager(String managerID) {
-		// TODO Auto-generated method stub
-		return null;
+	private DataFactory dataFactory;
+	private SystemStaffDao staffDao;
+	
+	public SystemStaffDataServiceImpl(){
+		dataFactory = new DataFactoryImpl();
+		staffDao = dataFactory.getSystemStaffDao();
+	}
+	public boolean addStaff(SystemStaffPO staffPO) throws RemoteException {
+		return staffDao.addStaff(staffPO);
 	}
 
-	public boolean addManager(SystemManagerPO managerPO) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updateStaff(SystemStaffPO staffPO) throws RemoteException {
+		return staffDao.updateStaff(staffPO);
 	}
 
-	public boolean deleteManager(String managerID) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteStaff(SystemStaffPO staffPO) throws RemoteException {
+		return staffDao.deleteStaff(staffPO);
 	}
 
-	public boolean updateManager(SystemManagerPO managerPO) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public SystemStaffPO findStaff(String staffID) throws RemoteException {
+		return staffDao.findStaff(staffID);
+	}	
+
 
 }
