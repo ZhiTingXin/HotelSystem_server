@@ -3,39 +3,41 @@ package testAll;
 import static org.junit.Assert.assertEquals;
 
 import java.rmi.RemoteException;
-
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
 import PO.LoginPO;
-import data.dao.impl.LoginDaoImpl;
 import data.service.LoginDataService;
 import data.service.impl.LoginDataServiceImpl;
-import other.ResultMessage;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Testlogin {
-	LoginDataService a;
+	LoginDataService a = new LoginDataServiceImpl();
 	
 	@Test
-	public void testAdd() throws RemoteException{
+	public void test001Add() throws RemoteException{
 		a = new LoginDataServiceImpl();
 		LoginPO login = new LoginPO("151250170","xzt970828");
-//		login.setId(151255654);
-//		login.setUserPassword("helloword");
-		assertEquals(ResultMessage.SUCCESSFUL,a.confirm("151250170", "xzt970828"));
+		login.setId("151250170");
+		login.setUserPassword("helloword");
+		assertEquals(true ,a.add(login));
 	}
-//	@Test
-//	public void testCofirm(){
-//		int id = 151250170;
-//		String password = "helloword";
-//		assertEquals(true, logindao.confirm(id, password));
-//	}
-////	@Test 
-////	public void testdele(){
-////		Login login = new Login(151250170,"helloword");
-////		assertEquals(true,logindao.delete(login));
-////	}
-//	@Test
-//	public void testup(){
-//		Login lo = new  Login(151250170,"123");
-//		assertEquals(true,logindao.update(lo));
-//	}
+	@Test
+	public void test002up()throws Exception{
+		LoginPO lo = new  LoginPO("151250170","123");
+		assertEquals(true,a.update(lo));
+	}
+	@Test
+	public void test003Cofirm()throws Exception{
+		String id = "151250170";
+		String password = "123";
+		assertEquals(true, a.confirm(id, password));
+	}
+	@Test 
+	public void test003dele()throws Exception{
+		LoginPO login = new LoginPO("151250170","helloword");
+		assertEquals(true,a.delete(login));
+	}
+	
 }

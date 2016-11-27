@@ -52,7 +52,7 @@ public class HotelStrategyDaoImpl implements HotelStrategyDao {
 		ArrayList<HotelStrategyPO> hotelstrategy = null;
 		try{
 			hotelstrategy = (ArrayList<HotelStrategyPO>)
-					hibernateUtil.findbySome("hotelstrategypo", "hotelid", hotelId);
+					hibernateUtil.findbySome("HotelStrategyPO", "hotelId", hotelId);
 			return hotelstrategy;
 		}catch(Exception e){
 			e.printStackTrace();

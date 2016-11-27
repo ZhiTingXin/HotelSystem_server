@@ -5,19 +5,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "systemanager")
+@Table(name = "systemmanager")
 public class SystemManagerPO {
-	@Id
 	private String managerID;
 	private String managerName;
 	
-	
+	public SystemManagerPO(){}
 	public SystemManagerPO(String managerID, String managerName){
 		this.managerID = managerID;
 		this.managerName = managerName;
 	}
 	
-	
+	@Id
 	public String getId() {
 		return managerID;
 	}

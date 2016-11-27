@@ -1,28 +1,35 @@
 package testAll;
 
-import java.util.List;
-
+import static org.junit.Assert.*;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import PO.HotelPO;
-import data.dao.impl.HotelDaoImpl;
-
+import data.service.HotelDataService;
+import data.service.impl.HotelDataServiceImpl;
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class hotelTest {
-
-	public static void main(String[] args){
-		HotelDaoImpl hp = new HotelDaoImpl();
-		HotelPO hotel = new HotelPO();
-		hotel.setHotelId("183272");
-		hotel.setHotelStaffId("183456");
-		hotel.setHotelStrict("ÄÏ¾©");
-		hotel.setHotelName("jinling");
-		hp.add(hotel);
-		//²éÑ¯hotel²âÊÔ
-//		Hotel hotel =hp.get("183542746");
-//		System.out.println(hotel);
-		//É¾³ý¾Æµê²âÊÔ
-//		System.out.println(hp.del(hotel));
-		//²éÑ¯¾Æµê²âÊÔ
-//		List<HotelPO> hot = hp.getHotels("ÄÏ¾©", "Hotelstrict");
-//		System.out.println(hot.size());
-		
+	HotelDataService hotelDataService = new HotelDataServiceImpl();
+	@Test
+	public void test001add() throws Exception{
+		HotelPO hotel = new HotelPO("1121234","213213", "nanjing", "½ðÁê´ó¾Æµê");
+			assertEquals(true,hotelDataService.add(hotel));
 	}
+	
+	@Test
+	public void test002Find()throws Exception{
+		HotelPO hotel = hotelDataService.find("1121234");
+		assertEquals("nanjing", hotel.getHotelStrict());
+	}
+	@Test
+	public void test003update()throws Exception{
+		HotelPO hotel = new HotelPO("1121234","213213", "nanjing","Ô²Í¨´ó¾Æµê");
+		hotelDataService.update(hotel);
+	}
+	@Test
+	public void test004Del()throws Exception{
+		HotelPO hotel = new HotelPO("112123","213213", "nanjing", "½ðÁê´ó¾Æµê");
+			assertEquals(true, hotelDataService.del(hotel));
+	}
+	
 }

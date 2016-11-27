@@ -56,7 +56,7 @@ public class OrderDaoImpl implements OrderDao{
 	public List<OrderPO> findOrders(String userId,String type) {
 		List<OrderPO> orderL = null;
 		try{
-		   orderL =hibernateUtil.findbySome("Order",type,userId);
+		   orderL =hibernateUtil.findbySome("OrderPO",type,userId);
 		   return orderL;
 		}catch(Exception e){
 			e.printStackTrace();

@@ -28,5 +28,8 @@ public class SystemStrategyDataServiceImpl implements SystemStrategyDataService 
 	public boolean modify(SystemStrategyPO systemstrategy) throws RemoteException {
 		return service.updateSstrategy(systemstrategy);
 	}
+	public SystemStrategyPO getSstrategy(String strategyName) throws RemoteException {
+		return service.getSstrategy(strategyName);
+	}
 
 }

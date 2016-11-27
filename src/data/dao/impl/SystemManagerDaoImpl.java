@@ -6,6 +6,7 @@ import other.hibernateUtil;
 
 public class SystemManagerDaoImpl implements SystemManagerDao{
 
+	
 	public SystemManagerPO findManager(String managerID) {
 		SystemManagerPO manager = null;
 		try{
@@ -45,6 +46,16 @@ public class SystemManagerDaoImpl implements SystemManagerDao{
 			return true;
 		}catch(Exception e){
 			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean deleteManager(SystemManagerPO systemManagerPO) {
+		try{
+			hibernateUtil.delete(systemManagerPO);
+			return true;
+		}catch(Exception exception){
+			exception.printStackTrace();
 			return false;
 		}
 	}
