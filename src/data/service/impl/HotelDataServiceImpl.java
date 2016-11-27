@@ -26,15 +26,15 @@ public class HotelDataServiceImpl implements HotelDataService{
 		return hotelDao.del(hotel);
 	}
 
-	public HotelPO get(String hotelId) throws RemoteException {
+	public HotelPO find(String hotelId) throws RemoteException {
 		return hotelDao.get(hotelId);
 	}
 
 	public ArrayList<HotelPO> getHotels(String strict, String type) throws RemoteException {
-		// TODO Auto-generated method stub
+
 		return hotelDao.getHotels(strict, type);
 	}
-
-	
-
+	public boolean update(HotelPO hotel) {
+		return hotelDao.update(hotel);
+	}
 }

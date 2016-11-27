@@ -3,34 +3,34 @@ package RMI;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.List;
 
 import PO.AdviceFeedBackPO;
+import PO.HotelPO;
+import PO.HotelStrategyPO;
 import PO.LoginPO;
+import PO.OrderPO;
 import PO.SystemStrategyPO;
 import data.service.AdviceFeedBackDataService;
 import data.service.HotelDataService;
 import data.service.HotelStrategyDataService;
 import data.service.LoginDataService;
 import data.service.OrderDataService;
-import data.service.RegisterDataService;
 import data.service.SystemStrategyDataService;
 import data.service.impl.AdviceFeedBackDataServiceImpl;
 import data.service.impl.HotelDataServiceImpl;
 import data.service.impl.HotelStrategyDataServiceImpl;
 import data.service.impl.LoginDataServiceImpl;
 import data.service.impl.OrderDataServiceImpl;
-import data.service.impl.RegisterDataServiceImpl;
 import data.service.impl.SystemStrategyDataServiceImpl;
-import other.ResultMessage;
 
-public class DataRemoteObject extends UnicastRemoteObject implements RegisterDataService,LoginDataService
+public class DataRemoteObject extends UnicastRemoteObject implements LoginDataService
 ,OrderDataService,HotelStrategyDataService,SystemStrategyDataService,HotelDataService,AdviceFeedBackDataService{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private RegisterDataService register;
 	private LoginDataService login;
 	private OrderDataService orderdata;
 	private HotelStrategyDataService hotelstrategy;
@@ -38,7 +38,6 @@ public class DataRemoteObject extends UnicastRemoteObject implements RegisterDat
 	private HotelDataService hotel;
 	private AdviceFeedBackDataService advice;
 	protected DataRemoteObject() throws RemoteException {
-		register = new RegisterDataServiceImpl();
 		login = new LoginDataServiceImpl();
 		orderdata = new OrderDataServiceImpl();
 		hotelstrategy = new HotelStrategyDataServiceImpl();
@@ -46,43 +45,108 @@ public class DataRemoteObject extends UnicastRemoteObject implements RegisterDat
 		hotel = new HotelDataServiceImpl();
 		advice = new AdviceFeedBackDataServiceImpl();
 	}
-	public ResultMessage addAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
+	public boolean addAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean updateAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public ArrayList<AdviceFeedBackPO> getAdvices(String userId, String type) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ResultMessage modiffiAdvice(AdviceFeedBackPO advicefeedback) throws RemoteException {
+	public boolean add(HotelPO hotel) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean del(HotelPO hotel) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public boolean update(HotelPO hotel) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public ArrayList<HotelPO> getHotels(String strict, String type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ArrayList<AdviceFeedBackPO> getAll(String userId) throws RemoteException {
+	public boolean add(SystemStrategyPO systemstrategy) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean delete(SystemStrategyPO systemstrategy) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean modify(SystemStrategyPO systemstrategy) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean add(HotelStrategyPO hotelstrategy) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean delete(HotelStrategyPO hotelstrategy) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean modify(HotelStrategyPO hotelstartegy) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public ArrayList<HotelStrategyPO> getAll(String hotelId) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ArrayList<AdviceFeedBackPO> getUnProcessed(String staffId) throws RemoteException {
+	public boolean add(OrderPO order) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean update(OrderPO order) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean dalete(OrderPO order) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public OrderPO findorder(String orderId) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ArrayList<AdviceFeedBackPO> getProcessed(String staffId) throws RemoteException {
+	public List<OrderPO> findOrders(String userId, String type) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ResultMessage add(SystemStrategyPO systemstrategy) throws RemoteException {
+	public boolean confirm(String userId, String userPassword) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean add(LoginPO login) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean delete(LoginPO login) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean update(LoginPO login) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public HotelPO find(String hotelId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ResultMessage delete(SystemStrategyPO systemstrategy) throws RemoteException {
+	public HotelStrategyPO get(String hotelstrategyId) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ResultMessage modify(SystemStrategyPO systemstrategy) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public ResultMessage confirm(String userId, String password)throws RemoteException {
-		// TODO Auto-generated method stub
-		return login.confirm(userId, password);
-	}
-	public ResultMessage add(LoginPO login)throws RemoteException {
+	public SystemStrategyPO getSstrategy(String strategyName) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
