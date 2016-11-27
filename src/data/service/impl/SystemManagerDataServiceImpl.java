@@ -27,9 +27,9 @@ public class SystemManagerDataServiceImpl implements SystemManagerDataService{
 		return systemManagerDao.addManager(managerPO);
 	}
 
-	public boolean deleteManager(String managerID) throws RemoteException {
+	public boolean deleteManager(SystemManagerPO systemManagerPO) throws RemoteException {
 		
-		return systemManagerDao.deleteManager(managerID);
+		return systemManagerDao.deleteManager(systemManagerPO);
 	}
 
 	public boolean updateManager(SystemManagerPO managerPO) throws RemoteException {

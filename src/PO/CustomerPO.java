@@ -2,6 +2,12 @@ package PO;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "customer")
 public class CustomerPO {
 	private String id;
 
@@ -16,7 +22,6 @@ public class CustomerPO {
 	private Date birthday;
 	
 	public CustomerPO() {
-		super();
 	}
 
 	public CustomerPO(String id, String username, String phone, int credit, int memberGrade) {
@@ -28,6 +33,7 @@ public class CustomerPO {
 		this.memberGrade = memberGrade;
 	}
 
+	@Id
 	public String getId() {
 		return id;
 	}

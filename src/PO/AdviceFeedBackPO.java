@@ -35,7 +35,6 @@ public class AdviceFeedBackPO {
 		AdviceFeedBack_content = adviceFeedBack_content;
 	}
     @Id
-    @GeneratedValue
 	public String getAdviceId() {
 		return AdviceId;
 	}
